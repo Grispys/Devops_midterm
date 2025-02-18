@@ -1,9 +1,9 @@
 package com.keyin.rest.City;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import com.keyin.rest.Airport.Airport;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 
 //my city class, similar to the airport class is almost every way. it just uses city, province, and population instead. getters and setter for its variables
@@ -15,9 +15,13 @@ public class City {
     @GeneratedValue(generator = "city_sequence")
     private long id;
 
+    @OneToMany
+    List<Airport> airports;
+
     private String name;
     private String province;
     private Integer population;
+
 
     public long getId() {
         return id;

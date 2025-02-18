@@ -7,6 +7,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/airports")
 public class AirportController {
     @Autowired
     private AirportService airportService;
@@ -16,17 +17,17 @@ public class AirportController {
         return airportService.findAllAirports();
     }
 
-    @GetMapping("/airport/{id}")
+    @GetMapping("/airports/{id}")
     public Airport getAirportByID(@PathVariable long id) {
         return airportService.findAirportById(id);
     }
 
-    @PostMapping("/airport")
+    @PostMapping("/airports")
     public Airport createAirport(@RequestBody Airport newAirport) {
         return airportService.createAirport(newAirport);
     }
 
-    @PutMapping("/airport/{id}")
+    @PutMapping("/{id}")
     public Airport updateAirport(@PathVariable long id, @RequestBody Airport updatedAirport) {
         return airportService.updateAirport(id, updatedAirport);
     }

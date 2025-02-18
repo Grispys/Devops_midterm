@@ -22,7 +22,7 @@ public class AircraftController {
         return aircraftService.findAircraftById(id);
     }
 
-    @PostMapping("/aircraft")
+    @PostMapping("/aircrafts")
     public Aircraft createAircraft(@RequestBody Aircraft newAircraft) {
         return aircraftService.createAircraft(newAircraft);
     }

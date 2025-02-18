@@ -16,6 +16,14 @@ public class Passenger {
     private String lastName;
     private Integer phoneNumber;
 
+    public Passenger(String firstName, String lastName, Integer phoneNumber){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
+
+
     public long getId() {
         return id;
     }
