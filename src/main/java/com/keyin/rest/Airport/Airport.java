@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 
+
+
+//this is just the airport class we went over in many examples. it along with its controller, service, and repository stay mostly unchanged.
 @Entity
 public class Airport {
     @Id
