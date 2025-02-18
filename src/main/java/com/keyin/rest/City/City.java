@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 
+
+//my city class, similar to the airport class is almost every way. it just uses city, province, and population instead. getters and setter for its variables
+// and the other classes for it are tuned to work with it similarly to airport.
 @Entity
 public class City {
     @Id
