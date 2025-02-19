@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/airports")
+@RequestMapping("/api")
 public class AirportController {
     @Autowired
     private AirportService airportService;

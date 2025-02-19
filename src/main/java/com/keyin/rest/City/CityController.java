@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/api")
 public class CityController {
 
     private final CityRepository cityRepository;

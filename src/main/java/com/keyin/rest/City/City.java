@@ -3,6 +3,7 @@ package com.keyin.rest.City;
 import com.keyin.rest.Airport.Airport;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,13 +16,24 @@ public class City {
     @GeneratedValue(generator = "city_sequence")
     private long id;
 
+
     @OneToMany
-    List<Airport> airports;
+    public List<Airport> airports;
 
     private String name;
     private String province;
     private Integer population;
 
+    public City(){
+
+    }
+
+    public City(String name, String province, Integer population) {
+        this.name = name;
+        this.province = province;
+        this.population = population;
+        this.airports = new ArrayList<Airport>();
+    }
 
     public long getId() {
         return id;
@@ -31,6 +43,13 @@ public class City {
         this.id = id;
     }
 
+    public List<Airport> getAirports() {
+        return airports;
+    }
+
+    public void setAirports(List<Airport> airports) {
+        this.airports = airports;
+    }
 
     public String getName() {
         return name;
@@ -55,4 +74,11 @@ public class City {
     public void setProvince(String province) {
         this.province = province;
     }
+
+
+    public void addToAirportList(Airport airport){
+        airports.add(airport);
+    }
+
+
 }

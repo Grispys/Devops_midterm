@@ -12,9 +12,6 @@ public class Airport {
     @GeneratedValue(generator = "airport_sequence")
     private long id;
 
-    @ManyToOne
-    private City city;
-
     private String code;
     private String name;
 
@@ -41,12 +38,12 @@ public class Airport {
     public void setName(String name) {
         this.name = name;
     }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
+//
+//    public City getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(City city) {
+//        this.city = city;
+//    }
 }
