@@ -1,9 +1,12 @@
 package com.keyin.rest.Aircraft;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+
+import com.keyin.rest.Airport.Airport;
+import com.keyin.rest.Passengers.Passenger;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Aircraft {
@@ -11,6 +14,24 @@ public class Aircraft {
     @SequenceGenerator(name = "aircraft_sequence", sequenceName = "aircraft_sequence", allocationSize = 1, initialValue=1)
     @GeneratedValue(generator = "aircraft_sequence")
     private long id;
+
+    @OneToMany
+    public List<Passenger> passengers;
+
+    @OneToMany
+    public List<Airport> airports;
+
+    public Aircraft(){
+
+    }
+
+    public Aircraft(String type, String airlineName, Integer numOfPassengers) {
+        this.type = type;
+        this.airlineName = airlineName;
+        this.numOfPassengers = numOfPassengers;
+        this.airports = new ArrayList<Airport>();
+        this.passengers = new ArrayList<Passenger>();
+    }
 
     private String type;
     private String airlineName;

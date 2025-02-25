@@ -3,6 +3,8 @@ package com.keyin.rest.Airport;
 import com.keyin.rest.City.City;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+
 
 //this is just the airport class we went over in many examples. it along with its controller, service, and repository stay mostly unchanged.
 @Entity
@@ -14,6 +16,17 @@ public class Airport {
 
     private String code;
     private String name;
+
+    public Airport(){
+
+    }
+
+
+    public Airport(String name, String code) {
+        this.name = name;
+        this.code = code;
+
+    }
 
     public long getId() {
         return id;

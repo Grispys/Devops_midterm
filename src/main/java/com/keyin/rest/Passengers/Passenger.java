@@ -1,9 +1,11 @@
 package com.keyin.rest.Passengers;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import com.keyin.rest.Airport.Airport;
+import com.keyin.rest.City.City;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Passenger {
@@ -12,14 +14,26 @@ public class Passenger {
     @GeneratedValue(generator = "passenger_sequence")
     private long id;
 
+//    ATTENTION
+//    i could not get the program to even run if i had a manytoone connection from passenger to city. it didnt recognize "list" as an entity? according to the stack
+//    trace. sorry
+
+    @OneToOne
+    public City city;
+
     private String firstName;
     private String lastName;
     private Integer phoneNumber;
+
+    public Passenger(){
+
+    }
 
     public Passenger(String firstName, String lastName, Integer phoneNumber){
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+//        this.city = new ArrayList<City>();
     }
 
 
