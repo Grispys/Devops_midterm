@@ -18,7 +18,9 @@ public class Passenger {
 //    i could not get the program to even run if i had a manytoone connection from passenger to city. it didnt recognize "list" as an entity? according to the stack
 //    trace. sorry
 
-    @OneToOne
+
+
+    @ManyToOne
     public City city;
 
     private String firstName;
@@ -33,10 +35,18 @@ public class Passenger {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-//        this.city = new ArrayList<City>();
+        this.city = new City();
     }
 
 
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public long getId() {
         return id;

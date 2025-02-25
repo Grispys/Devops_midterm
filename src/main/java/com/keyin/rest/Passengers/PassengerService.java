@@ -1,8 +1,11 @@
 package com.keyin.rest.Passengers;
 
+import com.keyin.rest.City.City;
+import com.keyin.rest.City.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +13,8 @@ import java.util.Optional;
 public class PassengerService {
     @Autowired
     private PassengerRepository passengerRepository;
+    @Autowired
+    private CityRepository cityRepository;
 
     public List<Passenger> findAllPassengers() {
         return (List<Passenger>) passengerRepository.findAll();
@@ -22,6 +27,11 @@ public class PassengerService {
     }
 
     public Passenger createPassenger(Passenger newPassenger) {
+//        get the proper city id and set it and its details as such in the new passenger
+        City city = cityRepository.findById(newPassenger.getCity().getId()).orElseThrow(() ->new RuntimeException("No city found"));
+
+        newPassenger.setCity(city);
+
         return passengerRepository.save(newPassenger);
     }
 

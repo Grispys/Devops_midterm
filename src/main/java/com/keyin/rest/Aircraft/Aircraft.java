@@ -15,6 +15,8 @@ public class Aircraft {
     @GeneratedValue(generator = "aircraft_sequence")
     private long id;
 
+
+
     @OneToMany
     public List<Passenger> passengers;
 
@@ -48,6 +50,14 @@ public class Aircraft {
 
     public String getType() {
         return type;
+    }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
     }
 
     public void setType(String type) {

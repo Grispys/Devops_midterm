@@ -1,8 +1,10 @@
 package com.keyin.rest.Aircraft;
 
+import com.keyin.rest.Passengers.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +24,10 @@ public class AircraftService {
     }
 
     public Aircraft createAircraft(Aircraft newAircraft) {
+        List<Passenger> updatedPassengers = new ArrayList<>();
+
+        for(Passenger passenger : newAircraft.get)
+
         return aircraftRepository.save(newAircraft);
     }
 
