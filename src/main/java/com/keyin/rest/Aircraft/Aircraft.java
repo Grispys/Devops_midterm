@@ -20,6 +20,7 @@ public class Aircraft {
     @OneToMany
     public List<Passenger> passengers;
 
+
     @OneToMany
     public List<Airport> airports;
 
@@ -45,6 +46,14 @@ public class Aircraft {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Airport> getAirports() {
+        return airports;
+    }
+
+    public void setAirports(List<Airport> airports) {
+        this.airports = airports;
     }
 
 
